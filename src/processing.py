@@ -11,16 +11,16 @@ list_of_dicts = [
 ]
 
 
-def filter_by_state(list_of_dicts: Any) -> list[str]:
+def filter_by_state(list_of_dicts: str) -> list[str]:
     """
     Функция принимает на вход список словарей и значение для ключа и возвращает новый
     список содержащий только те словари у которых ключ содержит переданное в функцию
     значение.
     """
     list_of_dicts_ = []
-    for filter in list_of_dicts:
-        if filter.get("state") == state:
-            list_of_dicts_.append(filter)
+    for f in list_of_dicts:
+        if f.get("state") == state:
+            list_of_dicts_.append(f)
     return list_of_dicts_
 
 
