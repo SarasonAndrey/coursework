@@ -22,9 +22,8 @@ def filter_by_state(list_of_dicts: list[dict[str]], state_id: str = "EXECUTED") 
         if f.get("state") == state_id:
             list_of_dicts_.append(f)
         elif f.get("state") == "CANCELED":
-                list_of_dicts_.append(f)
+            list_of_dicts_.append(f)
     return list_of_dicts_
-
 
 
 if __name__ == "__main__":
