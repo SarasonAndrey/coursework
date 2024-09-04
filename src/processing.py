@@ -1,7 +1,5 @@
 from typing import Any
 
-state = "CANCELED"
-"""Укажите статус для фильтрации"""
 
 list_of_dicts = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
@@ -11,19 +9,17 @@ list_of_dicts = [
 ]
 
 
-def filter_by_state(list_of_dicts: list[dict[str]], state_id: str = "EXECUTED") -> Any:
+def filter_by_state(list_of_dicts: list[dict[str]], state: str = "EXECUTED") -> Any:
     """
     Функция принимает на вход список словарей и значение для ключа и возвращает новый
     список содержащий только те словари у которых ключ содержит переданное в функцию
     значение.
     """
-    list_of_dicts_ = []
+    list_of_dict = []
     for f in list_of_dicts:
-        if f.get("state") == state_id:
-            list_of_dicts_.append(f)
-        elif f.get("state") == "CANCELED":
-            list_of_dicts_.append(f)
-    return list_of_dicts_
+        if f.get("state") == state:
+            list_of_dict.append(f)
+    return list_of_dict
 
 
 if __name__ == "__main__":
