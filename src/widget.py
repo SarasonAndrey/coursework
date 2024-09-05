@@ -1,4 +1,4 @@
-from src.masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(name: str) -> str | None:
@@ -21,10 +21,12 @@ print(mask_account_card("MasterCard 7158300734726758"))
 print(mask_account_card("Visa Gold 5999414228426353"))
 
 if __name__ == "__main__":
+
     def get_date(data: str) -> str | None:
         """Функция принимает на вход строку с датой в формате 2024-03-11T02:26:18.671407
-            и возвращает строку с датой в формате ДД.ММ.ГГГГ"""
+        и возвращает строку с датой в формате ДД.ММ.ГГГГ"""
         return f"{data[8:10]}.{data[5:7]}.{data[:4]}"
+
 
 if __name__ == "__main__":
     print(get_date("2024-03-11T02:26:18.671407"))
