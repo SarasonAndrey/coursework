@@ -1,6 +1,5 @@
 from src.widget import mask_account_card, get_date
 
-
 def test_masks():
     assert mask_account_card("Счет 64686473678894779589") == 'Счет **9589'
     assert mask_account_card("MasterCard 7158300734726758") == 'MasterCard 7158 30** **** 6758'
