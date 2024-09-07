@@ -1,6 +1,5 @@
 from typing import Any
 
-
 list_of_dicts = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -9,21 +8,17 @@ list_of_dicts = [
 ]
 
 
-def filter_by_state(list_of_dicts: list[dict[str, Any]], state: str = "EXECUTED") -> list[dict[str, Any]]:
+def filter_by_state(data: list[dict[str, Any]], state: str = "EXECUTED") -> list[dict[str, Any]]:
     """
     Функция принимает на вход список словарей и значение для ключа и возвращает новый
     список содержащий только те словари у которых ключ содержит переданное в функцию
     значение.
     """
-    list_of_dict = []
-    for f in list_of_dicts:
-        if f.get("state") == state:
-            list_of_dict.append(f)
-    return list_of_dict
-
-
-if __name__ == "__main__":
-    print(filter_by_state(list_of_dicts))
+    list_of_data = []
+    for values in data:
+        if values.get("state") == state:
+            list_of_data.append(values)
+    return list_of_data
 
 
 def sort_by_date(
@@ -42,6 +37,8 @@ def sort_by_date(
 
 
 if __name__ == "__main__":
+    print(filter_by_state(list_of_dicts))
+
     print([
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
