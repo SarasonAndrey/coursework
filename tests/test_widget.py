@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from typing import Any
 
 import pytest
@@ -20,4 +18,18 @@ def test_widget(number: Any, expected_result: Any) -> Any:
 
 
 def test_widget_data() -> Any:
-    assert get_date("2024-03-11T02:26:18.671407") == '11.03.2024'
+    assert get_date('2024-03-11T02:26:18.671407') == '11.03.2024'
+
+
+def test_widget_data() -> Any:
+    with pytest.raises(AssertionError):
+        assert get_date('') == ''
+
+
+def test_widget_data() -> Any:
+    assert get_date('2024-03-31') == '31.03.2024'
+
+
+def test_widget_data() -> Any:
+    with pytest.raises(AssertionError):
+        assert get_date('31/03/2024') == '31.03.2024'
