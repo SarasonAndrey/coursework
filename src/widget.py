@@ -18,12 +18,6 @@ def mask_account_card(name: str) -> str | None:
         return new_card
 
 
-if __name__ == "__main__":
-    print(mask_account_card("Счет 64686473678894779589"))
-    print(mask_account_card("MasterCard 7158300734726758"))
-    print(mask_account_card("Visa Gold 5999414228426353"))
-
-
 def get_date(data: str) -> str | None:
     """Функция принимает на вход строку с датой в формате 2024-03-11T02:26:18.671407
     и возвращает строку с датой в формате ДД.ММ.ГГГГ"""
@@ -32,3 +26,6 @@ def get_date(data: str) -> str | None:
 
 if __name__ == "__main__":
     print(get_date("2024-03-11T02:26:18.671407"))
+    print(mask_account_card("Счет 64686473678894779589"))
+    print(mask_account_card("MasterCard 7158300734726758"))
+    print(mask_account_card("Visa Gold 5999414228426353"))
