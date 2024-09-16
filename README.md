@@ -17,10 +17,14 @@ git clone https://github.com/SarasonAndrey/training.git
 ```
 pip install -r requirements.txt
 ```
-## Структура проекта
+## Структура проекта:
 - tests/ - папка с тестами
 - src/ - папка с функциями проекта
 - .venv - виртуальное окружение
+
+## Тестирование:
+- Coverage report: 100%
+- http://localhost:63342/coursework/htmlcov/index.html
 
 ## Команда проекта:
 
