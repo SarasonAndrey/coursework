@@ -17,6 +17,10 @@ git clone https://github.com/SarasonAndrey/training.git
 ```
 pip install -r requirements.txt
 ```
+## Структура проекта
+- tests/ - папка с тестами
+- src/ - папка с функциями проекта
+- .venv - виртуальное окружение
 
 ## Команда проекта:
 

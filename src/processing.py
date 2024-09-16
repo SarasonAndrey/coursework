@@ -36,7 +36,7 @@ def sort_by_date(
     return sorted_list
 
 
-if __name__ == "__main__":
-    print(filter_by_state(list_of_dicts))
-
-    print((sort_by_date(list_of_dicts)))
+# if __name__ == "__main__":
+#     print(filter_by_state(list_of_dicts))
+#
+#     print((sort_by_date(list_of_dicts)))
