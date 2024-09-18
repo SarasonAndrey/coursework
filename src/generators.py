@@ -1,6 +1,6 @@
 from typing import Any
 
-transactions = {
+transactions = [{
     "id": 939719570,
     "state": "EXECUTED",
     "date": "2018-06-30T02:08:58.425572",
@@ -14,24 +14,25 @@ transactions = {
     "description": "Перевод организации",
     "from": "Счет 75106830613657916952",
     "to": "Счет 11776614605963066702"
-}, {
-    "id": 939719570,
-    "state": "EXECUTED",
-    "date": "2018-06-30T02:08:58.425572",
-    "operationAmount": {
-        "amount": "9824.07",
-        "currency": {
-            "name": "USS",
-            "code": "USS"
-        }
-    },
-    "description": "Перевод организации",
-    "from": "Счет 75106830613657916952",
-    "to": "Счет 11776614605963066702"
-}
+},
+    {
+        "id": 142264268,
+        "state": "EXECUTED",
+        "date": "2019-04-04T23:20:05.206878",
+        "operationAmount": {
+            "amount": "79114.93",
+            "currency": {
+                "name": "USS",
+                "code": "USS"
+            }
+        },
+        "description": "Перевод со счета на счет",
+        "from": "Счет 19708645243227258542",
+        "to": "Счет 75651667383060284188"
+    }]
 
 
-def filter_by_currency(data: list[dict[str, Any]], code: str = "USS") -> list[dict[str, Any]]:
+def filter_by_currency(data: list[dict[str, Any]], code: str = "USD") -> list[dict[str, Any]]:
     """Функция выдает список трансакций с определенной валютой"""
 
     list_of_data = []
