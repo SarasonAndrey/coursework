@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Iterator
 
 transactions = [
     {
@@ -22,7 +22,7 @@ transactions = [
 ]
 
 
-def filter_by_currency(data: list[dict[str, Any]], code: str | None = "USD") -> list[dict[str, Any]] | None:
+def filter_by_currency(data: list[dict[str, Any]], code: str | None = "USD") -> Iterator:
     """Функция выдает список трансакций с определенной валютой"""
 
     list_of_data = []
@@ -32,10 +32,13 @@ def filter_by_currency(data: list[dict[str, Any]], code: str | None = "USD") -> 
     yield list_of_data
 
 
-def transaction_descriptions():
-    pass
+def transaction_descriptions(transactions: Any) -> Any:
+    """Функция возвращает описания для транзакций"""
+    for transaction in transactions:
+        yield transaction["description"]
 
 
 if __name__ == "__main__":
-    for _ in range(2):
+    for _ in range(5):
         print(next(filter_by_currency(transactions)))
+        print(next(transaction_descriptions(transactions)))
