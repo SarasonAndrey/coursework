@@ -33,12 +33,15 @@ def filter_by_currency(data: list[dict[str, Any]], code: str | None = "USD") -> 
 
 
 def transaction_descriptions(transactions: Any) -> Any:
-    """Функция возвращает описания для транзакций"""
+    """Функция возвращает описания транзакций"""
     for transaction in transactions:
         yield transaction["description"]
 
 
 if __name__ == "__main__":
+    usd_transactions = filter_by_currency(transactions, "USD")
+    descriptions = transaction_descriptions(transactions)
+
     for _ in range(5):
-        print(next(filter_by_currency(transactions)))
-        print(next(transaction_descriptions(transactions)))
+        print(next(usd_transactions))
+        print(next(descriptions))
