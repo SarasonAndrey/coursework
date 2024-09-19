@@ -22,7 +22,7 @@ transactions = [
 ]
 
 
-def filter_by_currency(data: list[dict[str, Any]], code: str | None = "USD") -> Iterator:
+def filter_by_currency(data: list[dict[str, Any]], code: str = "USD") -> Iterator:
     """Функция выдает список трансакций с определенной валютой"""
 
     list_of_data = []

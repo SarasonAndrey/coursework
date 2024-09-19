@@ -29,7 +29,8 @@ def fo_filter_and_transaction1() -> Any:
             "description": "Перевод организации",
             "from": "Счет 75106830613657916952",
             "to": "Счет 11776614605963066702",
-        }]
+        }
+    ]
 
 
 @pytest.fixture
@@ -45,4 +46,3 @@ def fo_filter_and_transaction2() -> Any:
             "to": "Счет 75651667383060284188",
         }
     ]
-
