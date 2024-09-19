@@ -19,15 +19,7 @@ def account2() -> Any:
 
 
 @pytest.fixture
-def for_filter_and_transaction() -> (
-    list[
-        dict[str, str | dict[str, str | dict[str, str]] | int]
-        | dict[str, str | dict[str, str | dict[str, str]] | int]
-        | dict[str, str | dict[str, str | dict[str, str]] | int]
-        | dict[str, str | dict[str, str | dict[str, str]] | int]
-        | dict[str, str | dict[str, str | dict[str, str]] | int]
-    ]
-):
+def fo_filter_and_transaction1() -> Any:
     return [
         {
             "id": 939719570,
@@ -37,7 +29,12 @@ def for_filter_and_transaction() -> (
             "description": "Перевод организации",
             "from": "Счет 75106830613657916952",
             "to": "Счет 11776614605963066702",
-        },
+        }]
+
+
+@pytest.fixture
+def fo_filter_and_transaction2() -> Any:
+    return [
         {
             "id": 142264268,
             "state": "EXECUTED",
@@ -46,32 +43,6 @@ def for_filter_and_transaction() -> (
             "description": "Перевод со счета на счет",
             "from": "Счет 19708645243227258542",
             "to": "Счет 75651667383060284188",
-        },
-        {
-            "id": 873106923,
-            "state": "EXECUTED",
-            "date": "2019-03-23T01:09:46.296404",
-            "operationAmount": {"amount": "43318.34", "currency": {"name": "руб.", "code": "RUB"}},
-            "description": "Перевод со счета на счет",
-            "from": "Счет 44812258784861134719",
-            "to": "Счет 74489636417521191160",
-        },
-        {
-            "id": 895315941,
-            "state": "EXECUTED",
-            "date": "2018-08-19T04:27:37.904916",
-            "operationAmount": {"amount": "56883.54", "currency": {"name": "USD", "code": "USD"}},
-            "description": "Перевод с карты на карту",
-            "from": "Visa Classic 6831982476737658",
-            "to": "Visa Platinum 8990922113665229",
-        },
-        {
-            "id": 594226727,
-            "state": "CANCELED",
-            "date": "2018-09-12T21:27:25.241689",
-            "operationAmount": {"amount": "67314.70", "currency": {"name": "руб.", "code": "RUB"}},
-            "description": "Перевод организации",
-            "from": "Visa Platinum 1246377376343588",
-            "to": "Счет 14211924144426031657",
-        },
+        }
     ]
+
