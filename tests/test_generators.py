@@ -59,7 +59,7 @@ def test_filter_by_currency_missing() -> None:
            ]
 
 
-def test_filter_by_currency_missing() -> None:
+def test_filter_by_currency_missing1() -> None:
     with pytest.raises(AssertionError):
         assert next(
             filter_by_currency(
@@ -96,5 +96,14 @@ def test_transaction_descriptions(fo_filter_and_transaction1) -> None:
     assert next(transaction_descriptions(fo_filter_and_transaction1)) == "Перевод организации"
 
 
-def test_transaction_descriptions(fo_filter_and_transaction2) -> None:
+def test_transaction_descriptions2(fo_filter_and_transaction2) -> None:
     assert next(transaction_descriptions(fo_filter_and_transaction2)) == "Перевод со счета на счет"
+
+
+def test_transaction_descriptions_empty() -> None:
+    assert next(transaction_descriptions([])) == ([])
+
+
+def test_transaction_descriptions_empty1() -> None:
+    with pytest.raises(StopIteration):
+        assert next(transaction_descriptions([])) == ([])
