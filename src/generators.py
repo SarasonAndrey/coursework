@@ -32,7 +32,8 @@ def filter_by_currency(data: list[dict], code: str = "USD") -> Iterator:
             currency = operation_amount.get("currency")
             if currency and currency.get("code") == code:
                 list_of_data.append(values)
-    yield list_of_data
+    usd_transactions = filter_by_currency(transactions, "USD")
+    return usd_transactions
 
 
 def transaction_descriptions(transactions_list: Any) -> Any:
