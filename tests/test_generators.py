@@ -1,9 +1,11 @@
+from typing import Any
+
 import pytest
 
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
 
-def test_filter_by_currency1(fo_filter_and_transaction1) -> None:
+def test_filter_by_currency1(fo_filter_and_transaction1: Any) -> None:
     assert next(filter_by_currency(fo_filter_and_transaction1)) == [
         {
             "id": 939719570,
@@ -17,7 +19,7 @@ def test_filter_by_currency1(fo_filter_and_transaction1) -> None:
     ]
 
 
-def test_filter_by_currency2(fo_filter_and_transaction2) -> None:
+def test_filter_by_currency2(fo_filter_and_transaction2: Any) -> None:
     assert next(filter_by_currency(fo_filter_and_transaction2)) == [
         {
             "id": 142264268,
@@ -92,11 +94,11 @@ def test_filter_by_currency_empty() -> None:
     assert next(filter_by_currency([])) == ([])
 
 
-def test_transaction_descriptions(fo_filter_and_transaction1) -> None:
+def test_transaction_descriptions(fo_filter_and_transaction1: Any) -> None:
     assert next(transaction_descriptions(fo_filter_and_transaction1)) == "Перевод организации"
 
 
-def test_transaction_descriptions2(fo_filter_and_transaction2) -> None:
+def test_transaction_descriptions2(fo_filter_and_transaction2: Any) -> None:
     assert next(transaction_descriptions(fo_filter_and_transaction2)) == "Перевод со счета на счет"
 
 
@@ -109,14 +111,19 @@ def test_transaction_descriptions_empty1() -> None:
         assert next(transaction_descriptions([])) == ([])
 
 
-@pytest.mark.parametrize("start, stop, expected",
-    [(1, 1, "0000 0000 0000 0001"), (9999999999999999, 9999999999999999, "9999 9999 9999 9999"),
-     (1000, 1001, "0000 0000 0000 1000")],
+@pytest.mark.parametrize(
+    "start, stop, expected",
+    [
+        (1, 1, "0000 0000 0000 0001"),
+        (9999999999999999, 9999999999999999, "9999 9999 9999 9999"),
+        (1000, 1001, "0000 0000 0000 1000"),
+    ],
 )
 def test_card_number_generator(start: int, stop: int, expected: str) -> None:
     assert next(card_number_generator(start, stop)) == expected
 
-def test_card_number_generator_range(start: int = 1, stop: int = 5) -> None:
+
+def test_card_number_generator_range() -> None:
     generated_number = card_number_generator(1, 5)
     assert next(generated_number) == "0000 0000 0000 0001"
     assert next(generated_number) == "0000 0000 0000 0002"
