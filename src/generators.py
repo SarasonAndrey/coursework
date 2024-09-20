@@ -49,11 +49,11 @@ def card_number_generator(start: int, stop: int) -> Iterator[str]:
         yield formatted_card_number
 
 
-if __name__ == "__main__":
-    usd_transactions = filter_by_currency(transactions, "USD")
-    descriptions = transaction_descriptions(transactions)
-    gen_number = card_number_generator(1000, 1001)
-    for _ in range(5):
-        print(next(usd_transactions))
-        print(next(descriptions))
-        print(next(gen_number))
+# if __name__ == "__main__":
+#     usd_transactions = filter_by_currency(transactions, "USD")
+#     descriptions = transaction_descriptions(transactions)
+#     gen_number = card_number_generator(1000, 1001)
+#     for _ in range(5):
+#         print(next(usd_transactions))
+#         print(next(descriptions))
+#         print(next(gen_number))
