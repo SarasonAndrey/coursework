@@ -1,6 +1,6 @@
 import pytest
 
-from src.generators import filter_by_currency, transaction_descriptions
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
 
 def test_filter_by_currency1(fo_filter_and_transaction1) -> None:
@@ -47,16 +47,16 @@ def test_filter_by_currency_missing() -> None:
             ]
         )
     ) == [
-               {
-                   "id": 142264268,
-                   "state": "EXECUTED",
-                   "date": "2019-04-04T23:20:05.206878",
-                   "operationAmount": {"amount": "79114.93", "currency": {"name": "", "code": ""}},
-                   "description": "Перевод со счета на счет",
-                   "from": "Счет 19708645243227258542",
-                   "to": "Счет 75651667383060284188",
-               },
-           ]
+        {
+            "id": 142264268,
+            "state": "EXECUTED",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"amount": "79114.93", "currency": {"name": "", "code": ""}},
+            "description": "Перевод со счета на счет",
+            "from": "Счет 19708645243227258542",
+            "to": "Счет 75651667383060284188",
+        },
+    ]
 
 
 def test_filter_by_currency_missing1() -> None:
@@ -76,16 +76,16 @@ def test_filter_by_currency_missing1() -> None:
                 ]
             )
         ) == [
-                   {
-                       "id": 142264268,
-                       "state": "EXECUTED",
-                       "date": "2019-04-04T23:20:05.206878",
-                       "operationAmount": {"amount": "79114.93", "currency": {"name": "", "code": ""}},
-                       "description": "Перевод со счета на счет",
-                       "from": "Счет 19708645243227258542",
-                       "to": "Счет 75651667383060284188",
-                   },
-               ]
+            {
+                "id": 142264268,
+                "state": "EXECUTED",
+                "date": "2019-04-04T23:20:05.206878",
+                "operationAmount": {"amount": "79114.93", "currency": {"name": "", "code": ""}},
+                "description": "Перевод со счета на счет",
+                "from": "Счет 19708645243227258542",
+                "to": "Счет 75651667383060284188",
+            },
+        ]
 
 
 def test_filter_by_currency_empty() -> None:
@@ -107,3 +107,11 @@ def test_transaction_descriptions_empty() -> None:
 def test_transaction_descriptions_empty1() -> None:
     with pytest.raises(StopIteration):
         assert next(transaction_descriptions([])) == ([])
+
+
+@pytest.mark.parametrize("start, stop, expected",
+    [(1, 1, "0000 0000 0000 0001"), (9999999999999999, 9999999999999999, "9999 9999 9999 9999"),
+     (1000, 1001, "0000 0000 0000 1000")],
+)
+def test_card_number_generator(start: int, stop: int, expected: str) -> None:
+    assert next(card_number_generator(start, stop)) == expected
