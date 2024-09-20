@@ -115,3 +115,11 @@ def test_transaction_descriptions_empty1() -> None:
 )
 def test_card_number_generator(start: int, stop: int, expected: str) -> None:
     assert next(card_number_generator(start, stop)) == expected
+
+def test_card_number_generator_range(start: int = 1, stop: int = 5) -> None:
+    generated_number = card_number_generator(1, 5)
+    assert next(generated_number) == "0000 0000 0000 0001"
+    assert next(generated_number) == "0000 0000 0000 0002"
+    assert next(generated_number) == "0000 0000 0000 0003"
+    assert next(generated_number) == "0000 0000 0000 0004"
+    assert next(generated_number) == "0000 0000 0000 0005"
