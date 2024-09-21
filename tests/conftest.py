@@ -4,6 +4,11 @@ import pytest
 
 
 @pytest.fixture
+def number() -> Any:
+    return "700079228960000006361"
+
+
+@pytest.fixture
 def account() -> Any:
     return "73654108430135874305"
 
