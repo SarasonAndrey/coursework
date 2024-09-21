@@ -23,6 +23,7 @@ def get_date(data: str) -> str | None:
     и возвращает строку с датой в формате ДД.ММ.ГГГГ"""
     return f"{data[8:10]}.{data[5:7]}.{data[:4]}"
 
+
 # if __name__ == "__main__":
 #     print(get_date("2024-03-11T02:26:18.671407"))
 #     print(mask_account_card("Счет 64686473678894779589"))

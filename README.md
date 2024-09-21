@@ -23,8 +23,14 @@ pip install -r requirements.txt
 - .venv - виртуальное окружение
 
 ## Тестирование:
-- Coverage report: 100%
-- http://localhost:63342/coursework/htmlcov/index.html
+- Все функции протестированы через pytest, для запуска выполните команду:
+```
+pytest
+```
+- Чтобы посмотреть на сколько процентов функциональный код покрыт тестами, наберите команду:
+```
+poetry run pytest --cov
+```
 
 ## Команда проекта:
 
