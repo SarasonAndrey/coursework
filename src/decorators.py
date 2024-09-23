@@ -29,10 +29,10 @@ def log(filename: Any = None) -> Any:
     return decorator
 
 
-# @log(filename="mylog.txt")
+@log(filename="mylog.txt")
 @log()
 def my_function(x: Any, y: Any) -> Any:
     return x + y
 
 
-my_function(9, 8)
+my_function( 9, 8)
