@@ -19,9 +19,7 @@ def log(filename=None):
                         file.write(f"{my_func.__name__} ok")
                 except Exception as e:
                     with open(filename, "w") as file:
-                        file.write(
-                            f"{my_func.__name__} error: {e}. Inputs: {args}, {kwargs}"
-                        )
+                        file.write(f"{my_func.__name__} error: {e}. Inputs: {args}, {kwargs}")
             # return result
 
         return wrapper
@@ -34,4 +32,4 @@ def my_function(x, y):
     return x + y
 
 
-my_function(1,6)
+my_function(1, 6)
