@@ -1,4 +1,4 @@
-from logging import getLogger, basicConfig, DEBUG, StreamHandler
+from logging import DEBUG, StreamHandler, basicConfig, getLogger
 from unittest import result
 
 import FileHandler

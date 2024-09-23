@@ -1,30 +1,32 @@
+from typing import Any
+
 from src.decorators import log
 
 
 @log()
-def my_function(x, y):
+def my_function(x: Any, y: Any) -> Any:
     return x / y
 
 
-def test_log_print(capsys):
+def test_log_print(capsys: str)-> None:
     my_function(10, 5)
     captured = capsys.readouterr()
     expected_output = "my_function started\n" "my_function ok\n" "my_function finished\n"
     assert captured.out == expected_output
 
 
-def test_log_print_try(capsys):
+def test_log_print_try(capsys: str)-> None:
     my_function(10, 0)
     captured = capsys.readouterr()
     expected_output = "my_function started\n" "my_function error: division by zero. Inputs: (10, 0), {}\n"
     assert captured.out == expected_output
 
 
-def test_log_print_fail(tmp_path):
+def test_log_print_fail(tmp_path: str)-> None:
     log_file = tmp_path / "test_output.txt"
 
     @log(log_file)
-    def my_function(x, y):
+    def my_function(x: Any, y: Any) -> Any:
         return x / y
 
     my_function(10, 5)
@@ -33,11 +35,11 @@ def test_log_print_fail(tmp_path):
     assert content == "my_function ok"
 
 
-def test_log_print_fail_try(tmp_path):
+def test_log_print_fail_try(tmp_path: str)-> None:
     log_file = tmp_path / "test_output.txt"
 
     @log(log_file)
-    def my_function(x, y):
+    def my_function(x: Any, y: Any) -> Any:
         return x / y
 
     my_function(10, 0)

@@ -1,9 +1,12 @@
+from typing import Any
+
+
 def log(filename=None):
     """Функция регистрирует детали выполнения функций"""
 
-    def decorator(my_func):
+    def decorator(my_func: Any) -> None:
 
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: Any, **kwargs: Any) -> None:
             if not filename:
                 print(f"{my_func.__name__} started")
                 try:
@@ -26,9 +29,9 @@ def log(filename=None):
     return decorator
 
 
-@log(filename="mylog.txt")
-# @log()
-def my_function(x, y):
+# @log(filename="mylog.txt")
+@log()
+def my_function(x: Any, y: Any) -> Any:
     return x + y
 
 
