@@ -8,21 +8,21 @@ def my_function(x: Any, y: Any) -> Any:
     return x / y
 
 
-def test_log_print(capsys: str)-> None:
+def test_log_print(capsys: Any) -> Any:
     my_function(10, 5)
     captured = capsys.readouterr()
     expected_output = "my_function started\n" "my_function ok\n" "my_function finished\n"
     assert captured.out == expected_output
 
 
-def test_log_print_try(capsys: str)-> None:
+def test_log_print_try(capsys: Any)-> Any:
     my_function(10, 0)
     captured = capsys.readouterr()
     expected_output = "my_function started\n" "my_function error: division by zero. Inputs: (10, 0), {}\n"
     assert captured.out == expected_output
 
 
-def test_log_print_fail(tmp_path: str)-> None:
+def test_log_print_fail(tmp_path: Any)-> Any:
     log_file = tmp_path / "test_output.txt"
 
     @log(log_file)
@@ -35,7 +35,7 @@ def test_log_print_fail(tmp_path: str)-> None:
     assert content == "my_function ok"
 
 
-def test_log_print_fail_try(tmp_path: str)-> None:
+def test_log_print_fail_try(tmp_path: Any) -> Any:
     log_file = tmp_path / "test_output.txt"
 
     @log(log_file)

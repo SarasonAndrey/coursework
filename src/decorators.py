@@ -1,10 +1,10 @@
 from typing import Any
 
 
-def log(filename=None):
+def log(filename: Any = None) -> Any:
     """Функция регистрирует детали выполнения функций"""
 
-    def decorator(my_func: Any) -> None:
+    def decorator(my_func: Any) -> Any:
 
         def wrapper(*args: Any, **kwargs: Any) -> None:
             if not filename:
