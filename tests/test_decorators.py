@@ -15,14 +15,14 @@ def test_log_print(capsys: Any) -> Any:
     assert captured.out == expected_output
 
 
-def test_log_print_try(capsys: Any)-> Any:
+def test_log_print_try(capsys: Any) -> Any:
     my_function(10, 0)
     captured = capsys.readouterr()
     expected_output = "my_function started\n" "my_function error: division by zero. Inputs: (10, 0), {}\n"
     assert captured.out == expected_output
 
 
-def test_log_print_fail(tmp_path: Any)-> Any:
+def test_log_print_fail(tmp_path: Any) -> Any:
     log_file = tmp_path / "test_output.txt"
 
     @log(log_file)
