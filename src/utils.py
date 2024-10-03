@@ -17,7 +17,7 @@ def financial_transaction_data(financial_file: str) -> list[Any] | list:
         if not isinstance(transactions, list):
             return []
         return transactions
-        ns
+
     except FileNotFoundError:
         return []
 
