@@ -3,7 +3,7 @@ import os
 from json import JSONDecodeError
 from typing import Any
 
-financial_file = os.path.join('../data/operations.json')
+financial_file = os.path.join("../data/operations.json")
 
 
 def financial_transaction_data(financial_file: str) -> list[Any] | list:
@@ -22,5 +22,5 @@ def financial_transaction_data(financial_file: str) -> list[Any] | list:
         return []
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(financial_transaction_data(financial_file))
