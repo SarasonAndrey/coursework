@@ -1,3 +1,4 @@
+from typing import Any
 from unittest.mock import patch
 
 import pytest
@@ -6,7 +7,7 @@ from src.external_api import transaction_amount
 
 
 @pytest.fixture
-def transaction_fix_rub():
+def transaction_fix_rub() -> dict[str, str | int | dict[str, str | dict[str, str]]]:
     return {
         "id": 587085106,
         "state": "EXECUTED",
@@ -21,7 +22,7 @@ def transaction_fix_rub():
 
 
 @pytest.fixture
-def transaction_fix():
+def transaction_fix() -> dict[str, str | int | dict[str, str | dict[str, str]]]:
     return {
         "id": 633268359,
         "state": "EXECUTED",
@@ -36,12 +37,12 @@ def transaction_fix():
     }
 
 
-def test_transaction_amount_rub(transaction_fix_rub):
+def test_transaction_amount_rub(transaction_fix_rub: dict[str, str | int | dict[str, str | dict[str, str]]]) -> None:
     assert transaction_amount(transaction_fix_rub) == 48223.05
 
 
 @patch("requests.get")
-def test_transaction_amount_mock(mock_get, transaction_fix):
+def test_transaction_amount_mock(mock_get: Any, transaction_fix: dict) -> Any:
     mock_get.return_value.json.return_value = {
         "success": True,
         "query": {"from": "EUR", "to": "RUB", "amount": 2631.44},

@@ -1,5 +1,6 @@
-import requests
 import os
+
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,8 +17,6 @@ def transaction_amount(transaction: dict) -> float:
             headers={"apikey": f"{API_KEY}"},
         )
         result = response.json()
-        return result["result"]
+        return float(result["result"])
     else:
         return float(amount)
-
-
