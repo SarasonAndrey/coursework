@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(name)s %(levelname)s %(message)s",
-    filename="masks.log",
+    filename="../logs/masks.log",
     filemode="w",
     encoding="utf-8",
 )
@@ -29,6 +29,6 @@ def get_mask_account(account: str) -> str:
     return f"**{account[-4:]}"
 
 
-# if __name__ == "__main__":
-#     print(get_mask_card_number("7000792289606361"))
-#     print(get_mask_account("73654108430135874305"))
+if __name__ == "__main__":
+    print(get_mask_card_number("7000792289606361"))
+    print(get_mask_account("73654108430135874305"))
