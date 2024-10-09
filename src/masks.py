@@ -13,8 +13,6 @@ card_number_logger = logging.getLogger("app.card_number")
 mask_account_logger = logging.getLogger("app.mask_account")
 
 
-
-
 def get_mask_card_number(card_number: str) -> str:
     """Функция принимает номер карты 12 цифр и возвращает ее маску
     :rtype: object
