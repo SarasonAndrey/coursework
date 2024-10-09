@@ -35,4 +35,4 @@ def my_function(x: Any, y: Any) -> Any:
     return x + y
 
 
-my_function( 9, 8)
+my_function(9, 8)
