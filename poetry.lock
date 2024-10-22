@@ -56,6 +56,17 @@ files = [
 ]
 
 [[package]]
+name = "categories"
+version = "0.3.5"
+description = ""
+optional = false
+python-versions = "*"
+files = [
+    {file = "categories-0.3.5-py3-none-any.whl", hash = "sha256:732edac22ed58cab7d2218316eb4a65d7c074de4edca7f40a214ab45a9967af8"},
+    {file = "categories-0.3.5.tar.gz", hash = "sha256:b3d66434068aec6185c59feba02297ea61d29228de90032c6e75b909af802143"},
+]
+
+[[package]]
 name = "certifi"
 version = "2024.7.4"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -1000,4 +1011,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "b47bead51e370e1d2822f95ecad4bb6a1fc36050e3857a5ac88e9270e343e3cb"
+content-hash = "29d989988c0cb4bdd45ae737ffe3dce01753f886d2ed48d26b53fbd68f20bfaa"
