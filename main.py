@@ -3,7 +3,7 @@ import os
 from src.csv_xlsx import read_csv, read_excel
 from src.generators import filter_by_currency
 from src.processing import filter_by_state, sort_by_date
-from src.regular_expressions import data_search
+from src.regular_expressions import operations_search
 from src.utils import financial_transaction_data
 from src.widget import get_date, mask_account_card
 
@@ -91,7 +91,7 @@ def main():
                 "Выберите из списка доступные описания операций:\nПеревод организации\nОткрытие вклада"
                 "\nПеревод со счета на счет\nПеревод с карты на счет\nПеревод с карты на карту\nВвод: "
             )
-            final_filter_operations = data_search(sort_currency_user, search_string_user)
+            final_filter_operations = operations_search(sort_currency_user, search_string_user)
             break
         elif descriptions_filter == "нет":
             print("Фильтрация по описанию операции не выбрана")
